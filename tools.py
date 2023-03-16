@@ -6,7 +6,5 @@ def get_file_name(file_dict):
         return key
 
 def file_exists(path):
-    if os.isfile(path):
-        return True
-    return False
+    return os.path.exists(path)
 
