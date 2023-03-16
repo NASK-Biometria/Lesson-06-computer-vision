@@ -69,7 +69,7 @@ class Generation:
             return False
         
     def download_model(self, name):
-        wget.download(f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'/content/lesson/stylegan2_models/{name}')
+        wget.download(f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'{name}')
 
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-afhqcat-512x512.pkl
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2_afhqcat_512x512.pkl
