@@ -41,7 +41,7 @@ class Generation:
         if self.target_seed == -1:
             #Generate random seed
             self.target_seed = str(uuid.uuid4().int)[:6]
-        os.system(f'python /content/lesson/stylegan2/generate.py --outdir=/content/lesson/out/{random_dir_name} --trunc={self.target_trunc} --seeds={self.target_seed} --network=/content/lesson/stylegan2_models/{self.model}')
+        os.system(f'python /content/lesson/stylegan2/generate.py --outdir=/content/lesson/out/{random_dir_name} --trunc={self.target_trunc} --seeds={self.target_seed} --network=/content/{self.model}')
         #Wait for image to be generated
         while not os.path.exists(f'/content/lesson/out/{random_dir_name}'):
             pass
