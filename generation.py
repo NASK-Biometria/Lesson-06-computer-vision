@@ -43,14 +43,6 @@ class Generation:
 
         self.target_seed = target_seed
         self.target_trunc = target_trunc
-
-    def check_download(self):
-        if not self.file_exists(f'/content/lesson/stylegan2_models/{self.model}'):
-            #Download model via wget
-            return self.download_model(self.model)
-        
-    def test(self):
-        return "TEST"
         
     
     def generate(self):
@@ -68,14 +60,8 @@ class Generation:
             image = Image.open(f'/content/lesson/out/{random_dir_name}/{image_name}')
             return image
         
-    def file_exists(self, path):
-        if os.path.isfile(path):
-            return True
-        else:
-            return False
-        
-    def download_model(self, name):
-        return [f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'/content/lesson/stylegan2_models/{name}']
+    def download_model(self):
+        return [f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{self.name}', f'/content/lesson/stylegan2_models/{self.name}']
 
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-afhqcat-512x512.pkl
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2_afhqcat_512x512.pkl
