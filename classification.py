@@ -10,9 +10,7 @@ class Classification:
         self.model.eval()
         self.preprocess = self.weights.transforms()
     
-    def classify(self, img_path):
-        #Read image from file
-        img = Image.open(img_path)
+    def classify(self, img):
         # Step 3: Apply inference preprocessing transforms
         batch = self.preprocess(img).unsqueeze(0)
 
