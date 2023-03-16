@@ -40,7 +40,7 @@ class Generation:
 
         if target_model == "METAFACES":
             self.model = 'stylegan2-metfaces-1024x1024.pkl'
-        if not self.file_exists(f'/content/stylegan2_models/{self.model}'):
+        if not self.file_exists(f'/content/lesson/stylegan2_models/{self.model}'):
             #Download model via wget
             self.download_model(self.model)
 
@@ -53,13 +53,13 @@ class Generation:
         if self.target_seed == -1:
             #Generate random seed
             self.target_seed = str(uuid.uuid4().int)[:6]
-        os.system(f'python /content/stylegan2/generate.py --outdir=/content/out/{random_dir_name} --trunc={self.target_trunc} --seeds={self.target_seed} --network=/content/stylegan2_models/{self.model}')
+        os.system(f'python /content/lesson/stylegan2/generate.py --outdir=/content/lesson/out/{random_dir_name} --trunc={self.target_trunc} --seeds={self.target_seed} --network=/content/lesson/stylegan2_models/{self.model}')
         #Wait for image to be generated
-        while not os.path.exists(f'/content/out/{random_dir_name}'):
+        while not os.path.exists(f'/content/lesson/out/{random_dir_name}'):
             pass
-        for image_name in os.listdir(f'/content/out/{random_dir_name}'):
+        for image_name in os.listdir(f'/content/lesson/out/{random_dir_name}'):
             #Open as PIL image
-            image = Image.open(f'/content/out/{random_dir_name}/{image_name}')
+            image = Image.open(f'/content/lesson/out/{random_dir_name}/{image_name}')
             return image
         
     def file_exists(self, path):
@@ -69,7 +69,7 @@ class Generation:
             return False
         
     def download_model(self, name):
-        wget.download(f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'/content/stylegan2_models/{name}')
+        wget.download(f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'/content/lesson/stylegan2_models/{name}')
 
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-afhqcat-512x512.pkl
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2_afhqcat_512x512.pkl
