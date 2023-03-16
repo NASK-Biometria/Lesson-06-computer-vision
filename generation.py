@@ -48,6 +48,10 @@ class Generation:
         if not self.file_exists(f'/content/lesson/stylegan2_models/{self.model}'):
             #Download model via wget
             return self.download_model(self.model)
+        
+    def test(self):
+        return "TEST"
+        
     
     def generate(self):
         #random directory name
