@@ -44,7 +44,10 @@ class Generation:
         self.target_seed = target_seed
         self.target_trunc = target_trunc
         
-    
+    def get_model_name(self):
+        return self.model
+
+
     def generate(self):
         #random directory name
         random_dir_name = str(uuid.uuid4())
