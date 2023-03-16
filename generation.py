@@ -51,7 +51,7 @@ class Generation:
             return image
         
     def download_model(self):
-        return [f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{self.name}', f'/content/lesson/stylegan2_models/{self.name}']
+        return [f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{self.model}', f'/content/lesson/stylegan2_models/{self.model}']
 
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-afhqcat-512x512.pkl
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2_afhqcat_512x512.pkl
