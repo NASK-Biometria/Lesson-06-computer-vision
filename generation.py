@@ -3,20 +3,6 @@ import uuid
 from PIL import Image
 import wget
 
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=600 --network=.\stylegan2_models\StyleGAN2_microscopev1.pkl    <---- Zdjęcia pod mikroskopem
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=600 --network=.\stylegan2_models\Long_Krrrl_Drawings__final.pkl    <---- Rysunki
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=600 --network=.\stylegan2_models\mapdreamer.pkl   <---- Mapy
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\network-snapshot-027750.pkl   <---- Ptaki
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-horse-config-f.pkl   <---- Konie
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan_models\stylegan2-ffhq-512x512  <---- Twarze
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-church-config-f.pkl   <---- Kościoły
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-car-config-f.pkl   <---- Samochody
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-afhqcat-512x512.pkl   <---- Koty
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-afhqdog-512x512.pkl  <---- Psy
-#python .\stylegan2\generate.py --outdir=out --trunc=0.7 --seeds=123 --network=.\stylegan2_models\stylegan2-afhqwild-512x512.pkl  <---- Zwierzęta
-
-
-
 class Generation:
     def __init__(self, target_model, target_seed, target_trunc):
         self.model = None
@@ -44,6 +30,7 @@ class Generation:
         self.target_seed = target_seed
         self.target_trunc = target_trunc
         
+
     def get_model_name(self):
         return self.model
 
