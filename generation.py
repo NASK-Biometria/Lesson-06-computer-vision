@@ -40,12 +40,14 @@ class Generation:
 
         if target_model == "METAFACES":
             self.model = 'stylegan2-metfaces-1024x1024.pkl'
-        if not self.file_exists(f'/content/lesson/stylegan2_models/{self.model}'):
-            #Download model via wget
-            self.download_model(self.model)
 
         self.target_seed = target_seed
         self.target_trunc = target_trunc
+
+    def check_download(self):
+        if not self.file_exists(f'/content/lesson/stylegan2_models/{self.model}'):
+            #Download model via wget
+            return self.download_model(self.model)
     
     def generate(self):
         #random directory name
@@ -69,7 +71,7 @@ class Generation:
             return False
         
     def download_model(self, name):
-        wget.download(f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'{name}')
+        return [f'https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/{name}', f'/content/lesson/stylegan2_models/{name}']
 
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2-afhqcat-512x512.pkl
         #https://api.ngc.nvidia.com/v2/models/nvidia/research/stylegan2/versions/1/files/stylegan2_afhqcat_512x512.pkl
